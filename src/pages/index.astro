@@ -3,6 +3,14 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+
+const allPosts = await getCollection("blog");
+const publishedPosts = allPosts
+	.filter((post) => post.data.draft !== true)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const latestPost = publishedPosts[0];
 ---
 
 <!doctype html>
@@ -18,6 +26,18 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 				Ich bin noch dabei, meine Website aufzubauen. Es steht schon ein
 				bisschen was in <a href="/about">"Über mich"</a>.
 			</p>
+
+			{
+				latestPost && (
+					<section>
+						<h2>Neuester Blog-Eintrag:</h2>
+						<a href={`/blog/${latestPost.id}/`}>{latestPost.data.title}</a>
+						<p>
+							<FormattedDate date={latestPost.data.pubDate} />
+						</p>
+					</section>
+				)
+			}
 		</main>
 		<Footer />
 	</body>

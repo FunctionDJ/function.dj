@@ -1,0 +1,26 @@
+<div
+	style="display: flex; align-items: center; flex-direction: column; gap: 0.5em"
+>
+	<span style="font-size: 1.5em;">This month is</span>
+	<span style="font-size: 2em; font-weight: bold;" id="percentText">...</span>
+	<span style="font-size: 1.5em;">complete.</span>
+	<progress style="height: 3em; width: 20em"></progress>
+	<span style="font-size: 0.8em; color: #888"
+		>Ironically, this page isn't vibe-coded.</span
+	>
+</div>
+
+<script>
+	const progress = document.querySelector("progress")!;
+	const percentText = document.getElementById("percentText")!;
+
+	const now = new Date();
+	const start = new Date(now.getFullYear(), now.getMonth(), 1);
+	const end = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+
+	const total = end.valueOf() - start.valueOf();
+	const current = now.valueOf() - start.valueOf();
+	const percentage = current / total;
+	percentText.textContent = (percentage * 100).toFixed(2) + "%";
+	progress.value = percentage;
+</script>
