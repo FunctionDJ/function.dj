@@ -13,7 +13,8 @@ It looks something like this:
 
 ```ts
 type ReadonlyDeep<T> = T extends object
-	? { readonly [Key in keyof T]: ReadonlyDeep<T[Key]> } // <-- this is called a "mapped type"
+	? // ↓ this is called a "mapped type"
+		{ readonly [Key in keyof T]: ReadonlyDeep<T[Key]> }
 	: T;
 ```
 
