@@ -1,1 +1,17 @@
 https://fediring.net/
+
+section "past appearances" oder so?
+- "understanding T[number] on Michigan TypeScript" https://youtu.be/4CmGe7VH_zg
+- media.ccc.de
+	- <iframe width="1024" height="576" src="https://media.ccc.de/v/38c3-everyone-vs-mp3-audio-datei-formate-fr-djs-und-co/oembed" frameborder="0" allowfullscreen></iframe>
+	- <iframe width="1024" height="576" src="https://media.ccc.de/v/38c3-rekordbox-gib-mir-meine-daten-berblick-von-datenzugriff-in-dj-software-hardware/oembed" frameborder="0" allowfullscreen></iframe>
+	- instagram profile / videos
+	- youtube videos
+		- "So rettest du dein DJ Set Recording!" https://www.youtube.com/watch?v=ICqZs58uRgY
+		- "Mehr als nur Beatmatching: TIMING (Teil 1/2)" https://www.youtube.com/watch?v=CnS_YuGL3-U&t=7s
+		- "Diese Falle lauert in fast allen Clubs!" https://www.youtube.com/watch?v=cDsVcwGwUIw
+		- "Was ist der Unterschied zwischen CDJs und Controllern?" https://www.youtube.com/watch?v=gZw-yn_E_q4
+		- "Wie man den CUE Button zum Beatmatchen einsetzt" https://www.youtube.com/watch?v=Qh_EzC6MPtE
+	- (video) mixes
+		- 2Raumclub XO D&B Set https://www.youtube.com/watch?v=wWSPnSwnAE4
+		- FUNCTION LIVE // XMAS RAVE 2024 // DRUM & BASS // DNB https://www.youtube.com/watch?v=3Uv_lfggqmk&t=1766s

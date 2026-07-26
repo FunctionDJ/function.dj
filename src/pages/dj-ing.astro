@@ -1,0 +1,746 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+interface YouTubeEntry {
+	title: string;
+	url: string;
+	description: string;
+}
+
+interface CccEntry {
+	title: string;
+	embedUrl: string;
+	description: string;
+}
+
+interface DjSoftwareProject {
+	name: string;
+	url: string;
+	description: string;
+	highlights: string[];
+	screenshot?: string;
+	screenshotAlt?: string;
+	badgeLabel?: string;
+	linkLabel?: string;
+}
+
+const tutorials: YouTubeEntry[] = [
+	{
+		title: "So rettest du dein DJ Set Recording!",
+		url: "https://www.youtube.com/watch?v=ICqZs58uRgY",
+		description: "Praxisnahe Tipps fur bessere und stabile Set-Recordings.",
+	},
+	{
+		title: "Mehr als nur Beatmatching: TIMING (Teil 1/2)",
+		url: "https://www.youtube.com/watch?v=CnS_YuGL3-U&t=7s",
+		description:
+			"Timing jenseits von reinem Beatmatching, anschaulich erklart.",
+	},
+	{
+		title: "Diese Falle lauert in fast allen Clubs!",
+		url: "https://www.youtube.com/watch?v=cDsVcwGwUIw",
+		description: "Ein typischer Club-Fallstrick und wie du ihn sicher umgehst.",
+	},
+	{
+		title: "Was ist der Unterschied zwischen CDJs und Controllern?",
+		url: "https://www.youtube.com/watch?v=gZw-yn_E_q4",
+		description: "Vergleich von Setup, Workflow und Einsatzgebieten.",
+	},
+	{
+		title: "Wie man den CUE Button zum Beatmatchen einsetzt",
+		url: "https://www.youtube.com/watch?v=Qh_EzC6MPtE",
+		description: "Konkrete CUE-Techniken fur sauberes Beatmatching.",
+	},
+];
+
+const mixes: YouTubeEntry[] = [
+	{
+		title: "2Raumclub XO D&B Set",
+		url: "https://www.youtube.com/watch?v=wWSPnSwnAE4",
+		description: "Live-DnB-Set mit für XO D&B im 2Raumclub.",
+	},
+	{
+		title: "FUNCTION LIVE // XMAS RAVE 2024 // DRUM & BASS // DNB",
+		url: "https://www.youtube.com/watch?v=3Uv_lfggqmk&t=1766s",
+		description: "Live-Set vom Bunker496 XMAS RAVE 2024.",
+	},
+];
+
+const cccTalks: CccEntry[] = [
+	{
+		title: "Everyone vs. MP3: Audio-Dateiformate fur DJs und Co.",
+		embedUrl:
+			"https://media.ccc.de/v/38c3-everyone-vs-mp3-audio-datei-formate-fr-djs-und-co/oembed",
+		description:
+			"CCC-Talk über Audioformate und ihre Bedeutung für DJ-Workflows.",
+	},
+	{
+		title: "Rekordbox, gib mir meine Daten!",
+		embedUrl:
+			"https://media.ccc.de/v/38c3-rekordbox-gib-mir-meine-daten-berblick-von-datenzugriff-in-dj-software-hardware/oembed",
+		description:
+			"Einblick in Datenzugriff und Datenkontrolle in DJ-Software/-Hardware.",
+	},
+];
+
+const contestEntry = {
+	title: "Dreamland Warm-Up 2026 DJ Contest",
+	artist: "Function",
+	audioUrl: "/audio/dreamland-warm-up-2026-dj-contest.mp3",
+	coverUrl: "/images/dj/dreamland-warm-up-2026-cover.png",
+	duration: "18:48",
+	description:
+		"Mein Contest-Entry für den Dreamland Warm-Up 2026 als hochwertiger 320k MP3-Stream direkt im Browser.",
+};
+
+const djSoftwareProjects: DjSoftwareProject[] = [
+	{
+		name: "Pioneer CDJ Comparison",
+		url: "https://docs.google.com/spreadsheets/d/1UFphfMHLJil01KmagWP5cQYU6i5rTeHMSlMSgr6Jx80/edit?pli=1&gid=557016137#gid=557016137",
+		description:
+			"Detailreicher Vergleich von CDJs, All-in-One-Systemen und Controllern mit einfachen bis sehr nischigen Profi-Features.",
+		highlights: [
+			"Gegenuberstellung von Hardware-Generationen inkl. Preis, Release-Jahr und Geraetetyp.",
+			"Breite Feature-Matrix von Basics bis Advanced-Themen wie Beatgrid-Handling, Layer, Cloud-Funktionen und mehr.",
+			"Praktische Entscheidungshilfe fur Setup-Wahl, Club-Readiness und individuelle DJ-Workflows.",
+		],
+		screenshot: "/images/dj/image.png",
+		screenshotAlt: "Screenshot der Pioneer CDJ Comparison Tabelle",
+		badgeLabel: "Spreadsheet Projekt",
+		linkLabel: "Zur Vergleichstabelle",
+	},
+	{
+		name: "powerbox",
+		url: "https://github.com/FunctionDJ/powerbox",
+		description:
+			"Rekordbox-Exporter für unterwegs: Playlists und Tracks aus master.db auslesen, in mobile-freundliche Dateien umwandeln und als portable Bibliothek syncen.",
+		highlights: [
+			"Scannt Rekordbox-Playlists inkl. Track-Hierarchien aus master.db.",
+			"Komprimiert Audio (standardmäßig ca. 192kbit/s VBR AAC) und behält Metadaten + Cover.",
+			"Schreibt .m3u8-Playlists in der gewohnten Ordnerstruktur für mobile Nutzung.",
+		],
+		linkLabel: "Zum Repository",
+	},
+	{
+		name: "Double Drop",
+		url: "https://github.com/FunctionDJ/double-drop",
+		description:
+			"Experimentelles Transition-Management für Rekordbox als Web-Interface zur Vorbereitung komplexer Mix-Übergänge.",
+		highlights: [
+			"Fokus auf DJ-Transitions statt generischer Musikverwaltung.",
+			"Technischer Playground für Mixing-Entscheidungen mit echtem Praxisbezug.",
+			"Als source-available Projekt explizit für Lern- und Analysezwecke gedacht.",
+		],
+		linkLabel: "Zum Repository",
+		screenshot:
+			"https://raw.githubusercontent.com/FunctionDJ/double-drop/main/image.png",
+		screenshotAlt: "Screenshot der Double Drop Weboberflache",
+	},
+	{
+		name: "rekordbox-database-documentation",
+		url: "https://github.com/FunctionDJ/rekordbox-database-documentation",
+		description:
+			"Reverse-Engineering und strukturierte Dokumentation der Rekordbox-Datenbasis (u.a. DBML-Schema und Analyse-Dateiformate).",
+		highlights: [
+			"Dokumentiert SQLCipher-Datenmodell als DBML mit vielen Tabellen und Feldnotizen.",
+			"Hilft dabei, DJ-Tools datengetrieben und kompatibel zu entwickeln.",
+		],
+		linkLabel: "Zum Repository",
+	},
+];
+
+const getYouTubeId = (url: string): string | null => {
+	try {
+		const parsed = new URL(url);
+		if (parsed.hostname.includes("youtu.be")) {
+			const id = parsed.pathname.replace("/", "").trim();
+			return id || null;
+		}
+		if (parsed.hostname.includes("youtube.com")) {
+			const watchId = parsed.searchParams.get("v");
+			if (watchId) {
+				return watchId;
+			}
+			if (parsed.pathname.includes("/shorts/")) {
+				const parts = parsed.pathname.split("/").filter(Boolean);
+				return parts[1] || null;
+			}
+		}
+		return null;
+	} catch {
+		return null;
+	}
+};
+
+const decorateVideo = (entry: YouTubeEntry) => {
+	const id = getYouTubeId(entry.url);
+	return {
+		...entry,
+		id,
+		thumbnail: id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null,
+	};
+};
+
+const decoratedTutorials = tutorials.map(decorateVideo);
+const decoratedMixes = mixes.map(decorateVideo);
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead
+			title="DJ-ing | Function"
+			description="Videos, Talks und Mixes rund um DJ-ing von Function."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="dj-page">
+			<section id="contest-entry" class="contest-section">
+				<div class="contest-main">
+					<div class="contest-cover-wrap">
+						<img
+							src={contestEntry.coverUrl}
+							alt={`Cover von ${contestEntry.title}`}
+							loading="eager"
+						/>
+					</div>
+					<div class="contest-content">
+						<p class="contest-kicker">Featured Contest Entry</p>
+						<h1>{contestEntry.title}</h1>
+						<p class="contest-meta">
+							{contestEntry.artist} · {contestEntry.duration}
+						</p>
+						<p>{contestEntry.description}</p>
+					</div>
+				</div>
+				<div class="contest-player">
+					<audio controls preload="metadata" src={contestEntry.audioUrl}>
+						<a href={contestEntry.audioUrl}>Audio herunterladen</a>
+					</audio>
+				</div>
+			</section>
+
+			<section id="talks" class="content-section">
+				<div class="section-head">
+					<h2>Talks und Vorträge</h2>
+					<p>Beiträge zu DJ-Technik, Datenformaten und Workflows.</p>
+				</div>
+				<div class="ccc-block">
+					<h3>media.ccc.de</h3>
+					<div class="video-grid">
+						{
+							cccTalks.map((talk) => (
+								<article class="video-card">
+									<h4>{talk.title}</h4>
+									<p>{talk.description}</p>
+									<div class="embed-wrap">
+										<iframe
+											src={talk.embedUrl}
+											title={talk.title}
+											loading="lazy"
+											allowfullscreen
+										/>
+									</div>
+								</article>
+							))
+						}
+					</div>
+				</div>
+			</section>
+
+			<section class="hero">
+				<h2>DJing: Was Function alles so macht</h2>
+				<div class="hero-actions">
+					<a href="#tutorials">Tutorials</a>
+					<a href="#software">DJ-Software</a>
+					<a href="#talks">Talks</a>
+					<a href="#more-formats">Weitere Formate</a>
+					<a href="#mixes">Live-Mixes</a>
+				</div>
+			</section>
+
+			<section id="tutorials" class="content-section">
+				<div class="section-head">
+					<h2>YouTube Tutorials</h2>
+					<p>
+						Konzentrierte Erklarvideos aus dem DJ-Alltag: Technik, Workflow,
+						Entscheidungen.
+					</p>
+				</div>
+				<div class="video-grid">
+					{
+						decoratedTutorials.map((video) => (
+							<article class="video-card">
+								<a
+									href={video.url}
+									target="_blank"
+									rel="noreferrer"
+									class="thumb-link"
+								>
+									{video.thumbnail ? (
+										<img
+											src={video.thumbnail}
+											alt={`Thumbnail zu ${video.title}`}
+											loading="lazy"
+										/>
+									) : (
+										<div class="thumb-fallback">Video</div>
+									)}
+								</a>
+								<h3>{video.title}</h3>
+								<p>{video.description}</p>
+							</article>
+						))
+					}
+				</div>
+			</section>
+
+			<section id="more-formats" class="content-section">
+				<div class="section-head">
+					<h2>Weitere Formate</h2>
+				</div>
+				<div class="video-grid">
+					<article class="video-card text-card">
+						<h3>Instagram Videos</h3>
+						<p>Kurze Tutorials und mehr.</p>
+						<p>
+							<a
+								href="https://www.instagram.com/functiongermany"
+								target="_blank"
+								rel="noreferrer"
+							>
+								Zum Instagram-Profil
+							</a>
+						</p>
+					</article>
+					<article class="video-card text-card">
+						<h3>YouTube Kanal</h3>
+						<p>Lange Tutorials, Mixes und mehr.</p>
+						<p>
+							<a
+								href="https://www.youtube.com/@function_germany"
+								target="_blank"
+								rel="noreferrer"
+							>
+								Zum Kanal
+							</a>
+						</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="software" class="content-section">
+				<div class="section-head">
+					<h2>Software im DJ-Kontext</h2>
+					<p>
+						Ich lege nicht nur auf, ich entwickle auch Tools rund um Rekordbox,
+						Datenformate und DJ-Workflows.
+					</p>
+				</div>
+				<div class="video-grid project-grid">
+					{
+						djSoftwareProjects.map((project) => (
+							<article class="video-card project-card">
+								{project.screenshot ? (
+									<a
+										href={project.url}
+										target="_blank"
+										rel="noreferrer"
+										class="thumb-link"
+									>
+										<img
+											src={project.screenshot}
+											alt={
+												project.screenshotAlt ??
+												`Screenshot von ${project.name}`
+											}
+											loading="lazy"
+										/>
+									</a>
+								) : (
+									<div class="project-badge">
+										{project.badgeLabel ?? "Projekt"}
+									</div>
+								)}
+								<h3>{project.name}</h3>
+								<p>{project.description}</p>
+								<ul>
+									{project.highlights.map((item) => (
+										<li>{item}</li>
+									))}
+								</ul>
+								<p>
+									<a href={project.url} target="_blank" rel="noreferrer">
+										{project.linkLabel ?? "Zum Projekt"}
+									</a>
+								</p>
+							</article>
+						))
+					}
+				</div>
+			</section>
+
+			<section id="mixes" class="content-section">
+				<div class="section-head">
+					<h2>Live-Mixes</h2>
+					<p>Komplette Sets für alle, die direkt reinhören wollen.</p>
+				</div>
+				<div class="video-grid">
+					{
+						decoratedMixes.map((video) => (
+							<article class="video-card">
+								<a
+									href={video.url}
+									target="_blank"
+									rel="noreferrer"
+									class="thumb-link"
+								>
+									{video.thumbnail ? (
+										<img
+											src={video.thumbnail}
+											alt={`Thumbnail zu ${video.title}`}
+											loading="lazy"
+										/>
+									) : (
+										<div class="thumb-fallback">Video</div>
+									)}
+								</a>
+								<h3>{video.title}</h3>
+								<p>{video.description}</p>
+							</article>
+						))
+					}
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.dj-page {
+		max-width: 1120px;
+		padding-top: 2rem;
+		padding-bottom: 3.5rem;
+	}
+
+	.contest-section {
+		display: grid;
+		gap: 1rem;
+		padding: 1.2rem;
+		border: 1px solid rgba(133, 183, 255, 0.5);
+		border-radius: 20px;
+		background:
+			radial-gradient(
+				circle at 90% 0%,
+				rgba(64, 173, 255, 0.24),
+				transparent 50%
+			),
+			radial-gradient(
+				circle at 8% 100%,
+				rgba(91, 127, 255, 0.22),
+				transparent 44%
+			),
+			linear-gradient(165deg, rgba(24, 35, 51, 0.98), rgba(17, 24, 38, 0.98));
+		box-shadow: 0 20px 36px rgba(0, 0, 0, 0.22);
+	}
+
+	.contest-main {
+		display: grid;
+		grid-template-columns: minmax(210px, 320px) minmax(0, 1fr);
+		gap: 1.2rem;
+		align-items: center;
+	}
+
+	.contest-cover-wrap {
+		border-radius: 16px;
+		overflow: hidden;
+		border: 1px solid rgba(var(--gray), 0.4);
+		line-height: 0;
+	}
+
+	.contest-cover-wrap img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+	}
+
+	.contest-kicker {
+		display: inline-flex;
+		padding: 0.42rem 0.9rem;
+		margin: 0 0 2rem;
+		font-size: 0.82rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		border-radius: 999px;
+		background: rgba(110, 192, 255, 0.2);
+		color: #d8f1ff;
+	}
+
+	.contest-content h1 {
+		margin-bottom: 0.3rem;
+		font-size: clamp(1.6rem, 4vw, 2.65rem);
+	}
+
+	.contest-meta {
+		margin: 0;
+		font-size: 0.98rem;
+		color: rgba(225, 242, 255, 0.85);
+	}
+
+	.contest-content p {
+		margin-top: 0.75rem;
+		margin-bottom: 0;
+	}
+
+	.contest-player {
+		margin-top: 0.2rem;
+		padding: 0.55rem;
+		width: 100%;
+	}
+
+	.contest-player audio {
+		display: block;
+		width: 100%;
+	}
+
+	.contest-cta {
+		margin-top: 0.45rem;
+		font-size: 0.95rem;
+	}
+
+	.hero {
+		position: relative;
+		overflow: hidden;
+		padding: 2.2rem;
+		border: 1px solid rgba(var(--gray), 0.28);
+		border-radius: 22px;
+		background:
+			radial-gradient(
+				circle at 95% 0%,
+				rgba(91, 127, 255, 0.28),
+				transparent 44%
+			),
+			radial-gradient(
+				circle at 15% 120%,
+				rgba(100, 210, 255, 0.25),
+				transparent 42%
+			),
+			linear-gradient(135deg, rgba(32, 40, 58, 0.94), rgba(18, 24, 39, 0.96));
+		box-shadow: 0 26px 40px rgba(0, 0, 0, 0.24);
+	}
+
+	.kicker {
+		display: inline-flex;
+		padding: 0.48rem 0.95rem;
+		margin-bottom: 2rem;
+		font-size: 0.9rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		border-radius: 999px;
+		background: rgba(91, 127, 255, 0.2);
+		color: #e5edff;
+	}
+
+	.hero h1 {
+		max-width: 20ch;
+		margin-bottom: 0.85rem;
+		font-size: clamp(2rem, 5vw, 3.5rem);
+	}
+
+	.hero p {
+		max-width: 62ch;
+		margin: 0;
+		color: rgba(240, 245, 255, 0.9);
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.7rem;
+		margin-top: 1.4rem;
+	}
+
+	.hero-actions a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.48rem 0.82rem;
+		font-size: 0.95rem;
+		font-weight: 700;
+		border-radius: 10px;
+		border: 1px solid rgba(130, 150, 190, 0.45);
+		background: rgba(25, 33, 50, 0.7);
+		color: #dce6ff;
+		text-decoration: none;
+		transition: transform 140ms ease;
+	}
+
+	.hero-actions a:hover {
+		transform: translateY(-1px);
+	}
+
+	.content-section {
+		margin-top: 2.2rem;
+	}
+
+	.section-head h2 {
+		font-size: clamp(1.6rem, 4vw, 2.25rem);
+		margin-bottom: 0.3rem;
+	}
+
+	.section-head p {
+		margin: 0;
+		color: rgba(var(--gray-dark), 0.86);
+	}
+
+	.video-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1rem;
+		margin-top: 1.1rem;
+	}
+
+	.video-card {
+		padding: 1rem;
+		border: 1px solid rgba(var(--gray), 0.28);
+		border-radius: 16px;
+		background: linear-gradient(
+			165deg,
+			rgba(29, 36, 52, 0.92),
+			rgba(18, 24, 40, 0.94)
+		);
+		box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+	}
+
+	.video-card h3,
+	.video-card h4 {
+		margin-top: 0.9rem;
+		margin-bottom: 0.4rem;
+		font-size: 1.08rem;
+	}
+
+	.video-card p {
+		margin: 0;
+		font-size: 0.98rem;
+		color: rgba(var(--gray-dark), 0.88);
+	}
+
+	.video-card ul {
+		margin: 0.75rem 0 0;
+		padding-left: 1.1rem;
+		font-size: 0.95rem;
+		color: rgba(var(--gray-dark), 0.9);
+	}
+
+	.video-card li {
+		margin: 0.2rem 0;
+	}
+
+	.thumb-link {
+		display: block;
+		border-radius: 12px;
+		overflow: hidden;
+		line-height: 0;
+		border: 1px solid rgba(var(--gray), 0.3);
+	}
+
+	.thumb-link img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+	}
+
+	.thumb-fallback {
+		display: grid;
+		place-items: center;
+		aspect-ratio: 16 / 9;
+		font-size: 1rem;
+		font-weight: 700;
+		background: rgba(var(--gray-light), 0.8);
+		color: rgba(var(--gray-dark), 1);
+	}
+
+	.embed-wrap {
+		margin-top: 0.85rem;
+		border-radius: 12px;
+		overflow: hidden;
+		border: 1px solid rgba(var(--gray), 0.3);
+		background: rgba(0, 0, 0, 0.35);
+	}
+
+	.embed-wrap iframe {
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		height: auto;
+		border: 0;
+	}
+
+	.ccc-block {
+		margin-top: 1.6rem;
+	}
+
+	.ccc-block h3 {
+		margin-bottom: 0.5rem;
+		font-size: 1.25rem;
+	}
+
+	.project-grid {
+		align-items: start;
+	}
+
+	.project-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.65rem;
+	}
+
+	.project-card h3,
+	.project-card p {
+		margin: 0;
+	}
+
+	.project-badge {
+		display: grid;
+		place-items: center;
+		aspect-ratio: 16 / 9;
+		border-radius: 12px;
+		border: 1px dashed rgba(var(--gray), 0.42);
+		background: linear-gradient(
+			145deg,
+			rgba(44, 52, 72, 0.9),
+			rgba(27, 33, 47, 0.9)
+		);
+		font-size: 0.95rem;
+		font-weight: 700;
+		letter-spacing: 0.03em;
+		color: rgba(var(--gray-dark), 0.95);
+	}
+
+	@media (max-width: 720px) {
+		.dj-page {
+			padding-top: 1.2rem;
+		}
+
+		.contest-section {
+			gap: 0.8rem;
+		}
+
+		.contest-main {
+			grid-template-columns: 1fr;
+		}
+
+		.hero {
+			padding: 1.35rem;
+			border-radius: 16px;
+		}
+	}
+</style>
