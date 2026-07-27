@@ -4,6 +4,9 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+
 :root {
 	--accent: #5b7fff;
 	--accent-dark: #4a6eef;
@@ -15,7 +18,9 @@
 	--bg-top: #1f2937;
 	--text-color: rgb(var(--gray-dark));
 	--heading-color: rgb(var(--black));
-	--box-shadow: 0 2px 6px rgba(0, 0, 0, 50%), 0 8px 24px rgba(0, 0, 0, 50%), 0 16px 32px rgba(0, 0, 0, 50%);
+	--box-shadow:
+		0 2px 6px rgba(0, 0, 0, 50%), 0 8px 24px rgba(0, 0, 0, 50%),
+		0 16px 32px rgba(0, 0, 0, 50%);
 }
 @font-face {
 	font-family: "Atkinson";
@@ -36,7 +41,11 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(to bottom, var(--bg-top) 0%, var(--bg-color) 400px);
+	background: linear-gradient(
+		to bottom,
+		var(--bg-top) 0%,
+		var(--bg-color) 400px
+	);
 	background-attachment: fixed;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -62,19 +71,19 @@ h6 {
 	line-height: 1.2;
 }
 h1 {
-	font-size: 2.5em;
+	font-size: 1.5em;
 }
 h2 {
-	font-size: 2.2em;
+	font-size: 1.4em;
 }
 h3 {
-	font-size: 1.9em;
+	font-size: 1.3em;
 }
 h4 {
-	font-size: 1.6em;
+	font-size: 1.2em;
 }
 h5 {
-	font-size: 1.3em;
+	font-size: 1.1em;
 }
 strong,
 b {
@@ -87,7 +96,7 @@ a:hover {
 	color: var(--accent);
 }
 p {
-	margin-bottom: 1em;
+	/* margin-bottom: 1em; */
 }
 .prose p {
 	margin-bottom: 2em;
