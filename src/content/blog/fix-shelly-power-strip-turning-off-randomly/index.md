@@ -1,6 +1,6 @@
 ---
 title: "Fix Shelly Power Strip turning off randomly"
-description: "TL;DR"
+description: "TL;DR change 'Output settings'"
 pubDate: "24.04.2026"
 draft: false
 ---
